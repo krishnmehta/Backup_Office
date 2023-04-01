@@ -1,0 +1,56 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.btn-select {
+    width: 100%;
+    &-title {
+        border: 1px solid $gray-bright;
+        border-radius: rem(5);
+        padding: rem(11) rem(20);
+        @include fs(14);
+        @include lh(18);
+        width: 100%;
+        text-align: left;
+        text-transform: capitalize;
+        background-color: $white;
+        box-shadow: none;
+        position: relative;
+        > span {
+            position: absolute;
+            top: 50%;
+            @include translateY(-50%);
+            right: rem(10);
+            @include fs(7);
+            color: rgba($black, 50%);
+        }
+        &::after {
+            display: none;
+        }
+    }
+    &-menu {
+        width: 100%;
+        padding: rem(6) 0;
+        border-color: $gray-bright;
+        border-radius: 0 0 rem(5) rem(5);
+    }
+    &-options {
+        @include fs(14);
+        @include lh(18);
+        color: $black;
+        padding: rem(6) rem(20);
+        &.select , &:hover{
+            background-color: rgba($black, 7%);
+            color: $black;
+        }
+        &.disabled {
+            color: rgba($black, 50%);
+        }
+    }
+
+    &.show {
+        .btn-select-title, .btn-select-menu {
+            border-color: #107BCC80;
+        }
+    }
+}

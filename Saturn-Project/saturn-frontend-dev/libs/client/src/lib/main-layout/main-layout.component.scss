@@ -1,0 +1,30 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.main-layout {
+    .main-layout-inner {
+        display: flex;
+        align-items: flex-start;
+    }
+    .main-layout-right, .main-layout-left {
+        height: 100vh;
+    }
+    .main-layout-right {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-left: 290px;
+        @include transition(margin-left 0.3s ease-out);
+
+        &.side-navigation-collapse {
+            margin-left: 90px;
+            @include transition(margin-left 0.3s ease-out);
+        }
+    }
+    .main-layout-content {
+        flex: 1;
+        padding: rem(30) rem(67);
+        background-color: #ECECEC;
+    }
+}

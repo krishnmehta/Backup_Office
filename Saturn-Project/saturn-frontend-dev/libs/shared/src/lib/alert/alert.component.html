@@ -1,0 +1,4 @@
+<div [ngClass]="'alert alert-'+message.type" role="alert" *ngIf="isMessageVisible">
+    {{message.text}}
+    <button type="button" class="btn-close" (click)="isMessageVisible = false"></button>
+</div>

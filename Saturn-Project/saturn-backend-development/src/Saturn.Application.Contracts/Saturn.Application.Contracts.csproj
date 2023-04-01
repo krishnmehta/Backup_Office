@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Saturn</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Saturn.Domain.Shared\Saturn.Domain.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.PowerBI.Api" Version="4.11.0" />
+    <PackageReference Include="Volo.Abp.ObjectExtending" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.Account.Application.Contracts" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.Identity.Application.Contracts" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application.Contracts" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="7.0.1" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Application.Contracts" Version="7.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,44 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+header {
+    background-color: $white;
+    padding: rem(34) rem(40) rem(34) rem(40);
+
+    .header{
+        &-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        &-left {
+            display: flex;
+            align-items: center;
+            gap: rem(10);
+        }
+        &-title {
+            @include fs(16);
+            @include lh(19);
+            @include fw(700);
+            color: $black;
+        }
+        &-user{
+            .icon {
+               height: 59px; 
+               width: 59px;
+               border-radius: 50%;
+               @include fs(26);
+               display: inline-flex;
+               align-items: center;
+               justify-content: center;
+               color: $white;
+               background-color: $gray-dusty;
+            }
+        }
+    }
+
+    @include responsive-device-down(xl){
+
+    }
+}

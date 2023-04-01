@@ -1,0 +1,606 @@
+@import "./bootstrap";
+@import "./functions";
+@import "./variables";
+@import "./mixins";
+@import "./fonts";
+@import "./icons";
+@import "node_modules/@ng-select/ng-select/themes/default.theme";
+
+/*** Pre-genarated Classes using Each, For Loops ***/
+@each $name, $value in $colors {
+    .text-#{$name} {
+        color: $value;
+        &-border-hover {
+            &::after {
+                content: '';
+                display: block;
+                width: 0%; height: 2px;
+                background-color: $value;
+                @include transition(width 0.3s ease-out);
+            }
+            &:hover {
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@each $item in $fontList{
+    .font-#{$item} {
+        @include fs($item);
+    }
+}
+
+@for $i from 1 through 6 {
+    h#{$i}, .h#{$i} {
+        @include fw(700);
+    }
+}
+
+/*** Global CSS Start ***/
+body {
+    min-height: 100vh;
+    font-family: $body-font-family;
+    font-weight: $body-font-weight;
+    color: $body-font-color;
+    line-height: $body-line-height;
+    @include fs(16);
+}
+
+main{
+    min-height: 100vh;
+    position: relative;
+}
+
+a.disabled {
+    pointer-events: none;
+    opacity: 0.75;
+}
+
+.no-box-shadow {
+    box-shadow: none !important;
+}
+
+img {
+    max-width: 100%;
+}
+
+.link-disabled {
+    pointer-events: none;
+}
+/* Logo Style */
+.logo {
+    display: flex;
+    align-items: center;
+    &-text {
+        @include fs(19);
+        @include lh(23);
+        @include fw(700);
+        color: $blue;
+        text-transform: uppercase;
+    }
+    img {
+        height: 40px;
+    }
+}
+
+/* Cursor Pointer Style*/
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Button Element Style */
+.btn {
+    border-radius: rem(5);
+    @include fs(16);
+    @include lh(20);
+    @include fw(500);
+    padding: rem(10) rem(22);
+    border: 0;
+    &-blue {
+        background-color: $blue;
+        color: $white;
+        box-shadow: 0px 12px 12px #107BCC33;
+        @include translateY(0);
+        @include transition(transform 0.3s ease-out, background-color 0.3s ease-out 0.3s);
+
+        &:disabled {
+            background-color: $blue;
+            color: $white;
+        }
+
+        &:hover, &:active, &:focus {
+            color: $white !important;
+            background-color: darken($blue, 5%) !important;
+            @include translateY(-4px);
+            @include transition(transform 0.3s ease-out, background-color 0.3s ease-out 0.3s);
+        }
+    }
+    &-gray-bermuda {
+        background-color: $gray-bermuda;
+        color: $white;
+        @include transition(background-color 0.3s ease-out);
+
+        &:hover, &:active, &:focus {
+            color: $white !important;
+            background-color: darken($gray-bermuda, 5%) !important;
+            @include transition(background-color 0.3s ease-out);
+        }
+    }
+    &-lg{
+        @include fs(18);
+        @include lh(22);
+    }
+    &-blue-outline{
+        border: 1px solid $blue;
+        color: $blue;
+        @include translateY(0);
+        @include transition(transform 0.3s ease-out, background-color 0.3s ease-out 0.3s);
+
+        &:hover, &:active, &:focus {
+            color: $blue !important;
+            border-color: darken($blue, 5%) !important;
+            @include translateY(-4px);
+            @include transition(transform 0.3s ease-out, background-color 0.3s ease-out 0.3s);
+        }
+    }
+}
+
+/* Text-Decoration-None Style */
+.text-decoration-none {
+    text-decoration: none;
+}
+
+/* Error Message Style */
+.error-msg {
+    &-wrapper{
+        display: block;
+        min-height: rem(24);
+        min-width: rem(1);
+        padding: rem(2) 0;
+        @include lh(16);
+    }
+    @include fs(12);
+    @include lh(16);
+    @include fw(500);
+    padding-top: rem(1);
+    color: $danger;
+}
+
+/* form group Style */
+.form-group {
+    margin-bottom: rem(0);
+}
+
+/* form-input-group: Input with icon Style */
+.form-input-group {
+    position: relative;
+    z-index: 1;
+    .icon{
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        @include translateY(-50%);
+        left: 0;
+    }
+}
+
+.form-registration, .form-area {
+    .form-control.input-icon {
+        padding-left: rem(60);
+    }
+    .form-control.input-icon-right {
+        padding-right: rem(40);
+    }
+    .form-input-group {
+        .icon {
+            width: rem(60);
+            display: flex;
+
+            color: $gray-bermuda;
+            align-items: center;
+            justify-content: center;
+        }
+        [class^=icon-], [class*=" icon-"]{
+            @include fs(22);
+        }
+        .icon-right{
+            width: rem(40);
+        }
+    }
+}
+
+.form-flex-group {
+    display: flex;
+    align-items: flex-start;
+    & > .icon {
+        margin-right: rem(17);
+    }
+
+    & > div {
+        flex: 1;
+    }
+}
+
+/* form-control: Input Style */
+.form-control {
+    border-color: $blue-light;
+    color: $black;
+    border-radius: rem(3);
+    @include fs(16);
+    @include responsive-device-up(xl) {
+        @include fs(17);
+    }
+    &.input-lg{
+        padding: rem(17) rem(20);
+    }
+    &-gray {
+        @include fs(14);
+        border-color: $gray-bright;
+        border-radius: rem(5);
+        min-height: 40px;
+    }
+}
+
+/* Input & Button large (height 60) Style */
+.input-lg, .btn-lg {
+    height: rem(60);
+    @include responsive-device-down(xl){
+        height: rem(50);
+    }
+}
+
+/* Placeholder Style */
+@include placeholder{
+    @include fs(14);
+    color: $gray-bermuda;
+}
+
+/* Custom Checkbox & Radio Style */
+.custom-checkcontainer {
+    .checkcontainer-label {
+        position: relative;
+        padding-left: rem(24);
+        cursor: pointer;
+    }
+    .checkcontainer-input {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+
+        &:checked ~ .checkcontainer-span {
+            &::after{
+                display: block;
+            }
+        }
+    }
+    .checkcontainer-span{
+        width: rem(18);
+        height: rem(18);
+        border: 1px solid $gray-bermuda;
+        background-color: $white;
+        position: absolute;
+        left: 0;
+
+        &:after {
+            content: '';
+            display: inline-block;
+            display: none;
+        }
+
+        // Radio Checked Style
+        &.radio {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &::after {
+                border-radius: 50%;
+                width: rem(10);
+                height: rem(10);
+                background-color: $gray-bermuda;
+            }
+        }
+
+        // Checkbox Checked Style
+        &.checkbox {
+            border-radius: rem(4);
+            &::after {
+                border: solid $gray-bermuda;
+                position: relative;
+                top: 44%; left: 50%;
+                @include transform(translate(-50%,-50%) rotate(-45deg));
+                border-width: 0 0 2px 2px;
+                width: rem(12);
+                height: rem(6.5);
+            }
+        }
+    }
+}
+
+/* Alerts Style*/
+.alert {
+    @include fs(15);
+    display: flex;
+    justify-content: center;
+    gap: rem(16);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    border: 0;
+    border-radius: 0;
+    .btn-close {
+        background-image: none;
+        color: $white;
+        opacity: 1;
+        position: relative;
+        z-index: 1;
+        padding: 0;
+        min-width: rem(16);
+        height: rem(16);
+        position: absolute;
+        right: rem(20);
+        &::before, &::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 2px;
+            background-color: $white;
+            position: absolute;
+            left: 0;
+        }
+        &::before {
+            @include transform(rotate(45deg));
+        }
+        &::after {
+            @include transform(rotate(-45deg));
+        }
+    }
+    &-danger {
+        background-color: lighten($danger, 15%);
+        color: $white;
+    }
+    &-success {
+        background-color: rgba($success, 1);
+        color: $white;
+    }
+}
+
+/* Navigation Steps */
+.navigation-steps {
+    margin: 0; padding: 0;
+    .item {
+        list-style-type: none;
+        position: relative;
+        &:not(:last-child){
+            padding-bottom: rem(30);
+        }
+        &:last-child {
+            &::before{
+                bottom: 0
+            }
+        }
+        &::before, &::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            background-color: $gray-dusty;;
+            left: 0;
+        }
+        &::before {
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            z-index: 2;
+            border: 4px solid transparent;
+        }
+        &::after {
+            width: 2px;
+            height: 100%;
+            left: 8px;
+            z-index: 1;
+            top: 0;
+        }
+        &.active {
+            &::before {
+                background-color: $blue;
+            }
+            .link {
+                color: $blue !important;
+                @include fw(700);
+            }
+
+        }
+        &.complete {
+            .link {
+                color: $black;
+            }
+            &::before {
+                background-color: $white;
+                border-color: $blue;
+            }
+            &::after {
+                background-color: $blue;
+            }
+        }
+        .link {
+            @include fs(15);
+            @include lh(19);
+            color: $gray-dusty;
+            text-decoration: none;
+            cursor: pointer;
+            display: flex;
+            padding-left: rem(28);
+        }
+    }
+}
+
+/* Card View Style*/
+.card {
+    background-color: $white;
+    border-radius: rem(10);
+    padding: rem(40);
+}
+
+/* File Upload Style */
+.file-upload-box {
+    position: relative;
+    max-width: 172px;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        height: 0.1px;
+        width: 0.1px;
+    }
+    .file-upload {
+        background-color: rgba($blue-light, 0.33);
+        border: 1px dashed $blue-light;
+        border-radius: rem(5);
+        color: $blue-light;
+        @include fs(14);
+        @include lh(18);
+        min-width: 172px;
+        min-height: 196px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &.preview-img-box {
+            justify-content: space-between;
+        }
+        em {
+            font-style: normal;
+            display: block;
+        }
+        .icon {
+            display: block;
+            margin-bottom: rem(13);
+            @include fs(42);
+        }
+        .change-image {
+            padding: rem(10) rem(12);
+            width: 100%;
+            text-align: center;
+            color: $black;
+            @include fw(500);
+            @include fs(15);
+        }
+
+    }
+
+}
+/* Ng-Select Dropdown Style */
+.ng-select {
+    .ng-select-container {
+        border-color: $gray-bright;
+        min-height: 80px;
+        align-items: flex-end;
+    }
+    &.ng-select-multiple {
+        .ng-select-container {
+            .ng-value-container {
+                padding: rem(5) 0 0 0;
+
+                &::before {
+                    content: 'No data available';
+                    @include fs(14);
+                    color: $gray-bermuda;
+                    padding-left: rem(12);
+                    position: relative;
+                    top: -11px;
+                }
+
+                .ng-placeholder {
+                    padding-bottom: 0;
+                    @include lh(23);
+                    color: $gray-bermuda;
+                    bottom: 7px;
+                    top: auto;
+                    padding-left: rem(12);
+                }
+
+                .ng-value {
+                    height: 30px; background-color: $blue-light;
+                    display: flex; align-items: center;
+                    margin-left: rem(5);
+                    @include fs(14);
+                    padding-left: rem(5);
+
+                    .ng-value-icon.left {
+                        border: 0;
+                        @include fs(24);
+                        order: 2;
+                        color: $black;
+                    }
+                }
+
+                .ng-input {
+                    flex: unset !important; // To overwrite current style from library
+                    width: calc(100% + 2px);
+                    display: block;
+                    border: 1px solid $gray-bright;
+                    border-radius: 0 0 rem(5) rem(5);
+                    min-height: 40px;
+                    padding: 0;
+                    margin: 0 rem(-1) rem(-1);
+                    @extend .icon-search;
+                    position: relative;
+                    &::before {
+                        font-family: $saturn-icon !important;   // To overwrite current font family
+                        position: absolute;
+                        right: rem(20);
+                        top: 50%;
+                        @include translateY(-50%);
+                    }
+
+                    & > input {
+                        height: 38px;
+                        padding-left: rem(12);
+                        box-sizing: border-box;
+                    }
+                }
+
+            }
+        }
+    }
+    .ng-has-value {
+        .ng-value-container {
+            &::before {
+                display: none;
+            }
+        }
+        .ng-placeholder {
+            display: block !important;  // To overwrite current style from library
+        }
+    }
+    &.ng-select-opened {
+        .ng-value-container .ng-placeholder {
+            display: none !important;   // To overwrite current style from library
+        }
+    }
+    .ng-arrow-wrapper {
+        display: none;
+    }
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option,
+.ng-select .ng-select-container .ng-value-container .ng-placeholder ,
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-input > input {
+    @include fs(14);
+    color: $black;
+}
+
+
+//Powerbi-report on dashboard
+.dashboard-product-report-listing {
+  iframe {
+    height:  600px !important;
+  }
+}

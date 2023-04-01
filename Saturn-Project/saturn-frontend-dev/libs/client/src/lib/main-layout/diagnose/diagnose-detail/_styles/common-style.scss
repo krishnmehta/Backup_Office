@@ -1,0 +1,38 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.right-side-inner {
+    *:not(button, a) {
+        color: $black
+    }
+    h1 {
+        @include fs(16);
+        @include lh(19);
+        margin-bottom: rem(14);
+    }
+    .content {
+        @include fs(15);
+        @include lh(24);
+
+        P{
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .card {
+        padding: rem(30);
+        margin-bottom: rem(20);
+    }
+    .btn-start {
+        @include lh(19);
+        min-width: 254px;
+        height: 55px;
+
+        @include responsive-device-down(xl){
+            min-width: 234px;
+            height: 45px;
+        }
+    }
+}

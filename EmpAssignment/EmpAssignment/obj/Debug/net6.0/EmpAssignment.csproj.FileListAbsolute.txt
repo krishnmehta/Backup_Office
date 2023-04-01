@@ -1,0 +1,15 @@
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\bin\Debug\net6.0\EmpAssignment.exe
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\bin\Debug\net6.0\EmpAssignment.deps.json
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\bin\Debug\net6.0\EmpAssignment.runtimeconfig.json
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\bin\Debug\net6.0\EmpAssignment.dll
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\bin\Debug\net6.0\EmpAssignment.pdb
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.csproj.AssemblyReference.cache
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.AssemblyInfoInputs.cache
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.AssemblyInfo.cs
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.csproj.CoreCompileInputs.cache
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.dll
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\refint\EmpAssignment.dll
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.pdb
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\EmpAssignment.genruntimeconfig.cache
+C:\Users\promact\source\repos\EmpAssignment\EmpAssignment\obj\Debug\net6.0\ref\EmpAssignment.dll

@@ -1,0 +1,169 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+
+/* Accounts Page Style Start*/
+.acc-wrapper {
+    background-color: $white;
+    &-inner {
+        display: flex;
+        min-height: 100vh;
+    }
+
+    .acc-left {
+        background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.80) 25%, rgba(255,255,255,0) 100%), url('/assets/bg-acc-left.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        flex: 0 0 60%;
+        position: relative;
+        z-index: 1;
+
+        &-inner {
+            max-width: 80%;
+            width: 100%;
+            margin: 0 auto;
+            position: absolute;
+            z-index: 2;
+            bottom: 12%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .title {
+            @include fs(50);
+            @include fw(700);
+            @include lh(61);
+            color: $white;
+        }
+
+        @include responsive-device-down(md){
+            flex: 0 0 50%;
+        }
+    }
+    
+    .acc-right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        padding: rem(40) rem(20);
+
+        &-inner {
+            max-width: 70%;
+            width: 100%;
+            margin: 0 auto;
+
+            @include responsive-device-up(xl){
+                max-width: 420px;
+            }
+            @include responsive-device-down(lg){
+                max-width: 80%;
+            }
+        }        
+    }
+    .logo-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: rem(28);
+    }
+    .page-title {
+        @include fs(20);
+        @include lh(24);
+        @include fw(700);
+        color: $gray-bermuda;
+    }
+    
+    .btn-group {
+        margin-top: rem(40)
+    }
+    .status-otp {
+        @include fs(14);
+        @include lh(18);
+    }
+    .acc-bottom-action {
+        @include fs(18);
+        @include lh(22);
+        @include fw(500);
+        margin-top: rem(28);
+        a {
+            display: inline-block;
+        }
+        @include responsive-device-down(md) {
+            @include fs(16);
+        }
+    }
+    .label-otp {
+        @include fs(14);
+        @include lh(18);
+        margin-bottom: rem(20);
+    }
+    .otp-input-group {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        .form-control {
+            height: rem(40);
+            width: rem(40);
+            margin-right: rem(20);
+            padding: rem(6); 
+            text-align: center;
+
+            @include responsive-device-down(lg){
+                margin-right: rem(20);
+            }
+        }
+    }
+    .checkcontainer-label {
+        color: $gray-bermuda;
+        @include fs(14);
+        @include lh(18);
+    }
+    .terms-policy-group {
+        //padding: 0 rem(25);
+        margin-top: rem(32);
+    }
+
+    .acc-tab-heading {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid $blue-light;
+        margin-bottom: rem(20);
+
+        & > div {
+            flex: 0 0 50%;
+            text-align: center;
+            @include fs(14);
+            @include lh(18);
+            cursor: pointer;
+            padding: rem(6) 0 0;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 4px;
+                background-color: transparent;
+                border-radius: rem(4);
+                margin-top: rem(12);
+            }
+            &.active {
+                color: $blue;
+                &::after {
+                    background-color: $blue;
+                } 
+            }
+        }
+    }
+
+    .form-height-login {
+        min-height: 170px
+    }
+}
+@include placeholder{
+    @include fs(14);
+    color: $gray-bermuda;
+    text-transform: initial !important;
+}
+/* Accounts Page Style End*/

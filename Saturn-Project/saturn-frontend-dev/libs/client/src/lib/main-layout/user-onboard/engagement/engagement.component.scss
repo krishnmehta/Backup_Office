@@ -1,0 +1,166 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.engagement-wrapper{
+    .engagement{
+        &-card {
+            background-color: $white;
+            border-radius: rem(10);
+            padding: rem(40);
+            color: $black;
+            margin-bottom: rem(20);
+
+            .title {
+                @include fs(16);
+                @include fw(700);
+                @include lh(19);
+                color: $black;
+                margin-bottom: rem(20);
+
+                @include responsive-device-up(xl){
+                    @include fs(18);
+                }
+            }
+
+            &-video {
+                iframe{
+                    width: 100%;
+                    height: 600px;
+                    border-radius: rem(20);
+                }
+                
+            }
+
+            &-content{
+                p {
+                    @include fs(14);
+                    @include lh(23);
+
+                    &:not(:last-child) {
+                        margin-bottom: rem(24);
+                    }
+                    &:last-child { 
+                        margin-bottom: 0;
+                    }
+
+                    @include responsive-device-up(xl){
+                        @include fs(15);
+                    }
+                }
+            }   
+        }
+    }
+    .btn {
+        @include fw(400);
+        margin-top: rem(10);
+        height: rem(55);
+        width: rem(260);
+
+        @include responsive-device-down(lg){
+            height: rem(45);
+            width: rem(230);
+        }
+    }   
+}
+
+/* PDF CSS */
+.engagement-pdf {
+    background-color: $white;
+    padding: rem(40);
+    color: $black;
+
+    .title {
+        @include fs(16);
+        @include fw(700);
+        @include lh(19);
+        color: $black;
+        margin-bottom: rem(20);
+    }
+
+    p {
+        @include fs(14);
+        @include lh(23);
+    }
+
+    .list-style {
+        &-number, &-alphabets {
+            counter-reset: list;
+            li{ 
+                list-style: none;
+                P {
+                    display: flex;
+                    align-items: flex-start;
+                    margin-bottom: rem(16);
+                    &::before{
+                        counter-increment: list;
+                        @include fs(14);
+                        @include lh(23);
+                        margin-right: rem(4);
+                    }
+                }
+            }
+        }
+        &-number {
+            p::before{
+                content: counter(list, number)".";
+            }
+            
+        }
+        &-alphabets {
+            p::before{ 
+                content: "("counter(list, lower-alpha)")";
+            }
+        }
+    }
+
+    .engagement-compnay {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: rem(50);
+        margin-top: rem(60);
+        
+        & > div {
+            flex: 1;
+        }
+
+        &-name {
+            @include fs(14);
+            @include fw(700);
+            text-align: center;
+            margin-bottom: rem(60);
+
+            @include responsive-device-up(xl){
+                @include fs(15);
+            }
+            text-transform: capitalize;
+        }
+        &-detail {
+            @include fs(14);
+            @include lh(24);
+            @include fw(700);
+
+            .col-row {
+                &:not(:last-child) {
+                    margin-bottom: rem(16);
+                }
+            }
+            em { 
+                font-style: normal;
+                min-width: rem(60);
+            }
+            span { 
+                border-bottom: 1px solid $black;
+                width: 100%;
+                @include fw(500);
+                padding-left: rem(4);
+                text-transform: capitalize;
+            }
+
+            @include responsive-device-up(xl){
+                @include fs(15);
+            }
+        }
+    }
+}

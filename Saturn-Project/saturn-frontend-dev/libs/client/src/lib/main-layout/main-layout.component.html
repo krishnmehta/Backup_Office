@@ -1,0 +1,19 @@
+<div class="main-layout">
+    <div class="main-layout-inner">
+        <!-- Side Navigation Area -->
+        <div class="main-layout-left">
+            <saturn-frontend-side-navigation (sideNavigationCollapseEvent)="isContentCollapse = $event"></saturn-frontend-side-navigation>
+        </div>
+
+        <!-- Main Layout Area -->
+        <div class="main-layout-right" [ngClass]="isContentCollapse ? 'side-navigation-collapse' : '' ">
+            <!-- Header Area -->
+            <saturn-frontend-header></saturn-frontend-header>
+
+            <!-- Routing Area -->
+            <div class="main-layout-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

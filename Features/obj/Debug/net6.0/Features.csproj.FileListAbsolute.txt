@@ -1,0 +1,15 @@
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.csproj.AssemblyReference.cache
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.AssemblyInfoInputs.cache
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.AssemblyInfo.cs
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.csproj.CoreCompileInputs.cache
+C:\Users\promact\source\repos\Features\bin\Debug\net6.0\Features.exe
+C:\Users\promact\source\repos\Features\bin\Debug\net6.0\Features.deps.json
+C:\Users\promact\source\repos\Features\bin\Debug\net6.0\Features.runtimeconfig.json
+C:\Users\promact\source\repos\Features\bin\Debug\net6.0\Features.dll
+C:\Users\promact\source\repos\Features\bin\Debug\net6.0\Features.pdb
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.dll
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\refint\Features.dll
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.pdb
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\Features.genruntimeconfig.cache
+C:\Users\promact\source\repos\Features\obj\Debug\net6.0\ref\Features.dll

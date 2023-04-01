@@ -1,0 +1,225 @@
+<div class="engagement-wrapper">
+  <!-- Engagement View and Accept Checkbox Area -->
+  <ng-container *ngIf="isEngagementView">
+    <!-- Engagement Video -->
+    <div class="engagement-card engagement-card-video">
+      <h1 class="title">Engagement Approach and Terms</h1>
+      <iframe src="https://www.youtube.com/embed/2O4EtGlq93k?rel=0" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- Engagement Content -->
+    <div class="engagement-card engagement-card-content">
+      <h2 class="title">Engagement Terms and Conditions</h2>
+
+      <p>The Terms and Conditions governing this engagement and the deliverables of the engagement are set out below:
+      </p>
+
+      <p>The enclosed proposal is strictly confidential and is intended for use by the business and the Top Management
+        only.</p>
+
+      <p>In the event, you decide to terminate the Engagement, for any reason whatsoever, during the period of the
+        Engagement, all fees due to us, as set out in this proposal, up to 20 days after the termination date, will need
+        to be paid to us within 3 days of the termination date</p>
+
+      <p>l Any legal requirements related to the Engagement including, without limitation, any laws, rules or
+        regulations with which <strong>the business</strong>. or the work or strategies forming part of the Engagement
+        must comply are outside the scope of the Engagement and we shall accordingly have no responsibility to advise
+        <strong>the business</strong>. on any such requirements or obligations. It is recommended that the business seek
+        legal advice as to any legal or regulatory requirements with which such work or strategies and/ or must comply.
+      </p>
+
+      <p><strong>The business</strong>. acknowledges that all materials, documents and information provided to it or its
+        employees or agents, by StratformX (including but not limited to this proposal and deliverables for the
+        engagement) and all information developed by StratformX pursuant to this proposal and engagement, shall at all
+        times be considered as confidential information and as proprietary information, the intellectual property rights
+        of which vest solely in StratformX (“Confidential Information”) and <strong>the business</strong> has no rights
+        to it whatsoever.</p>
+
+      <p><strong>The business</strong> agrees and undertakes to hold such “Confidential Information” in strict
+        confidence at all times and it shall disclose the “Confidential Information” only to its Directors, employees,
+        officers, agents, consultants and representatives on a need-to-know basis only if the forgoing parties are bound
+        and obligated by the provision set out hereunder. <strong>The business</strong> acknowledges that the
+        Confidential Information provided to it by StratformX is for its internal use only, no portion of the
+        Confidential Information can be reproduced in full or part or in any manner whatsoever except with prior written
+        permission of StratformX. The business agrees and acknowledges that the rights to the Confidential Information
+        vested in StratformX are intangible in nature and any breach by <strong>The business</strong> of its obligation
+        hereunder would entitle StratformX to seek damages as may be available to it under law and equity. StratformX
+        acknowledges that all materials, documents and information provided to it or its employees by <strong>The
+          business</strong> shall be considered as confidential information and as the sole property of <strong>The
+          business</strong>.</p>
+
+      <p><strong>The business</strong> acknowledges that StratformX will only be providing them with assistance in
+        <strong>“Business Transformation”</strong>. The decision as to whether or not the business should carry on or
+        exit from such business and <strong>the business</strong> plan and entry/ exit strategy that it adopts to do so
+        are the responsibility of <strong>the business</strong> and StratformX shall accordingly have no responsibility
+        or liability for any such decision or the adoption of a particular business plan or strategy.
+      </p>
+
+      <!-- Checkbox Component -->
+      <div class="">
+        <saturn-frontend-checkbox className="green-jade" checkBoxId="engagemenTerms" [isChecked]="false"
+          (checkBoxEvent)="isAcceptNextDisable = $event"
+          checkBoxData="I agree to StartformX <a class='text-green-jade font-bold' href='#' target='_blank'><strong>Terms and Conditions</strong></a>"></saturn-frontend-checkbox>
+      </div>
+    </div>
+
+    <!-- Accept & Next Button -->
+    <button class="btn btn-blue no-box-shadow" [disabled]="!isAcceptNextDisable" (click)="submitEngagementView()">Accept
+      & Next</button>
+  </ng-container>
+
+  <!-- Engagement Sign NDA Area -->
+  <ng-container *ngIf="isEngagementSign">
+    <div class="engagement-card engagement-card-content engagement-pdf" #engagementNdaPDF>
+      <h1 class="title text-center">NON-DISCLOSURE AGREEMENT</h1>
+      <p>FOR GOOD CONSIDERATION, and in consideration of {{ ndaCompanyName}} (“the Discloser”) revealing a proprietary
+        technological solution and business models to StartformX Consultech PVT. LTD. (“the Recipient”), by their
+        authorized representatives, hereby agree and acknowledge the following:</p>
+      <ol class="list-style-number">
+        <li>
+          <p>The Discloser intends to disclose information to the Recipient for learning of and/or developing the
+            Discloser's proprietary software solution and services (“Purpose”), including but not limited to:</p>
+
+          <ol class="list-style-alphabets">
+            <li>
+              <p>Technical information: computer software components, platform, graphical user interface, systems,
+                methods, functionality, concepts and/or unpublished information disclosed in current or future patent
+                applications of the Discloser or its affiliates;</p>
+            </li>
+            <li>
+              <p>Business information: pricing, business models, strategies, proposed uses, sources of equipment, parts,
+                and/or production systems; and,</p>
+            </li>
+            <li>
+              <p>All other information or material that could have commercial value or other utility in the business in
+                which Discloser is engaged. (Collectively “Confidential Information”)</p>
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          <p>
+            The Recipient agrees not to use the Confidential Information for any purpose except the purpose without
+            first obtaining the written agreement of Discloser.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            The Recipient agree to keep that Confidential Information secure and not to disclose it to any third party
+            without the Discloser's express written consent
+          </p>
+        </li>
+
+        <li>
+          <p>The undertakings in clauses 2 and 3 above applied to all information disclosed by the Discloser to the
+            Recipient, regardless of the way or form in which it was disclosed or recoded, but they do not apply to:</p>
+          <ol class="list-style-alphabets">
+            <li>
+              <p>Any information which is or in the future comes into the public domain (unless as a result of the
+                breach of this agreement); or</p>
+            </li>
+            <li>
+              <p>Any information which is already known to the recipient and which was not subject to any obligation of
+                confidence before it was disclosed to the Recipient by the Discloser.</p>
+            </li>
+          </ol>
+        </li>
+
+        <li>
+          <p>Nothing in this agreement will prevent the Recipient from making any disclosure of the confidential
+            Information required by law or by any competent authority</p>
+        </li>
+
+        <li>
+          <p>The Recipient will, on the quest for the Discloser, return all copies and records of the confidential
+            Information to the Discloser and will not retain any copies or records of the confidential Information.</p>
+        </li>
+
+        <li>
+          <p>Neither this Agreement nor the supply of any information grants the Recipient any license, interest or
+            right in respect to any intellectual property rights of the Discloser except the right to copy the
+            Confidential Information solely for the Purpose. Instead, any software, interface or designs developed by
+            the Recipient for the Discloser or based on the Confidential Information will be the exclusive intellectual
+            property of the Discloser and it is included in the definition of confidential Information.</p>
+        </li>
+
+        <li>
+          <p>The undertakings in clauses 2 and 3 will continue in force indefinitely as qualified by clause 4</p>
+        </li>
+
+        <li>
+          <p>This Agreement is governed by, and is to be construed in accordance with, Indian law, without regard to its
+            conflict of law provisions. Any disputes arising in connection with thi s agreement shall be litigated in
+            the courts located in Vadodara, Gujarat, India. If any clause, term or provision of this Agreement is judged
+            invalid, such invalidity shall not affect the validity or operation of any other provision in hereof.
+            Failure at any time to enforce any provision of this Agreement shall not be deemed a waiver of such or any
+            other provision hereof.</p>
+        </li>
+
+        <li>
+          <p>The Recipient acknowledges that any breach of this Agreement will result in irreparable harm to the
+            Discloser for which damages, alone, would be an inadequate remedy and therefore, in the event of such breach
+            and in addition to their rights and remedies otherwise available at law, the Discloser should be entitled to
+            equitable relief, including an injunction, without proof of actual damages and without the requirement of
+            posting a bond or other security.</p>
+        </li>
+
+        <li>
+          <p>This agreement shall be binding upon the Recipient, their employees, representatives and successors in
+            interest, and shall inure to the benefit of the Discloser, their successors and assigns.</p>
+        </li>
+      </ol>
+
+      <p>In WITNESS WHEREOF, the Recipient have caused this confidential Non-Disclosure Agreement to be executed by
+        their duly authorize representatives.</p>
+
+      <div class="engagement-compnay">
+        <div class="left">
+          <div class="engagement-compnay-name">
+            {{ndaCompanyName}}
+          </div>
+          <div class="engagement-compnay-detail">
+            <div class="d-flex col-row">
+              <em>By:</em>
+              <span>{{ndaUserName}}</span>
+            </div>
+            <div class="d-flex col-row">
+              <em>Name:</em>
+              <span>{{ndaUserName}}</span>
+            </div>
+            <div class="d-flex col-row">
+              <em>Date:</em>
+              <span>{{ ndaSignDate | date: 'dd-MMM-yyyy'}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="engagement-compnay-name">
+            StartformX Consultech PVT. LTD.
+          </div>
+          <div class="engagement-compnay-detail">
+            <div class="d-flex col-row">
+              <em>By:</em>
+              <span>Kedar Pandya</span>
+            </div>
+            <div class="d-flex col-row">
+              <em>Name:</em>
+              <span>Kedar Pandya</span>
+            </div>
+            <div class="d-flex col-row">
+              <em>Date:</em>
+              <span>{{ ndaSignDate | date: 'dd-MMM-yyyy'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-blue no-box-shadow me-4" (click)="finishEngagementNda()"
+      *ngIf="!isEngagementSubmitted">Accept & Continue</button>
+    <button class="btn btn-blue-outline no-box-shadow" (click)="downloadPdf()">Download NDA</button>
+  </ng-container>
+</div>

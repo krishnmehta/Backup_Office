@@ -1,0 +1,36 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.loader {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($white, 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &::before {
+        content: '';
+        display: inline-block;
+        border: rem(6) solid $gray-dusty; 
+        border-top: rem(6) solid $blue; 
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+}
+
+@-webkit-keyframes spin {
+    0% { @include rotate(0d); }
+    100% { @include rotate(360); }
+}
+@keyframes spin {
+    0% { @include rotate(0); }
+    100% { @include rotate(360); }
+}

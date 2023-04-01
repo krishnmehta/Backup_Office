@@ -1,0 +1,159 @@
+<div class="acc-wrapper">
+    <div class="acc-wrapper-inner">
+        <!-- Left Side Area -->
+        <div class="acc-left">
+            <div class="acc-left-inner">
+                <h1 class="title">
+                    The Strategy Platform For Your Business.
+                </h1>
+            </div>
+        </div>
+        <!-- Right Side Area -->
+        <div class="acc-right">
+            <div class="acc-right-inner">
+
+                <!-- Logo and Page Title -->
+                <div class="logo-title">
+                    <!-- Logo-->
+                    <div class="logo">
+                        <span class="logo-text">STARTFORM</span>
+                        <img src="/assets/startform-logo.svg" alt="Startform" title="Startform"/>
+                    </div>
+
+                    <!-- Page Title-->
+                    <div class="page-title">
+                        Log in
+                    </div>
+                </div>
+
+                <!-- Tabs Heading -->
+                <div class="acc-tab-heading">
+                    <div class="acc-tab-item" (click)="selectTab('email')" [ngClass]="isEmailTabVisible ? 'active' : ''">
+                        Via Email
+                    </div>
+                    <div class="acc-tab-item" (click)="selectTab('phone')" [ngClass]="isPhoneTabVisible ? 'active' : ''">
+                        Via Phone
+                    </div>
+                </div>
+
+                <!-- Login Form Area -->
+                <div class="form-area">
+                    
+                    <!-- Tabs Content-->
+                    <div class="acc-tab-content">
+
+                        <!-- Email Tab Content-->
+                        <div class="acc-tab-content-email" *ngIf="isEmailTabVisible">
+                            <form [formGroup]="formEmailLogin" (ngSubmit)="submitEmailLogin()">
+                                <div class="form-height-login">
+                                    <!-- Email Address-->
+                                    <div class="form-group">
+                                        <div class="form-input-group">
+                                            <span class="icon icon-mail"></span>
+                                            <input type="text" class="form-control input-lg input-icon" placeholder="Your email address*" formControlName="email" [(ngModel)]="loginModelData.userNameOrEmailAddress" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-z0-9.-]+\.[a-zA-z]{2,4}$" autocomplete="false" />
+                                        </div>
+                                        <div class="error-msg-wrapper">
+                                            <span class="error-msg" *ngIf="emailFormError['email'] && emailFormError['email'].touched && emailFormError['email'].errors?.['required']">This field is required.</span>
+                                            <span class="error-msg" *ngIf="emailFormError['email'] && emailFormError['email'].touched && emailFormError['email'].errors?.['pattern']">Email can only contain alphanumeric characters followed by (@) and (.) no other special characters are allowed.</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Password -->
+                                    <div class="form-group">
+                                        <div class="form-input-group">
+                                            <span class="icon icon-lock"></span>
+                                            <input type="password" class="form-control input-lg input-icon" placeholder="Your password*" formControlName="password" [(ngModel)]="loginModelData.password" autocomplete="false" />
+                                        </div>
+                                        <div class="error-msg-wrapper">
+                                            <span class="error-msg" *ngIf="emailFormError['password'] && emailFormError['password'].touched && emailFormError['password'].errors?.['required']">This field is required.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Button -->
+                                <div class="btn-group">
+                                    <button type="submit" class="btn btn-lg btn-blue w-100" [disabled]="!formEmailLogin.valid">Log in</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Phone Tab Content-->
+                        <div class="acc-tab-content-phone" *ngIf="isPhoneTabVisible">
+                            <!-- Phone number Input Area-->
+                            <ng-container *ngIf="isPhoneStep1">
+                                <form [formGroup]="formPhoneLogin" (ngSubmit)="submitPhoneLogin()">
+                                    <div class="form-height-login">
+                                        <!-- Phone Number -->
+                                        <div class="form-group">
+                                            <div class="form-input-group">
+                                                <span class="icon icon-phone"></span>
+                                                <input type="text" class="form-control input-lg input-icon" placeholder="Your contact number*" formControlName="phone" autocomplete="false" />
+                                            </div>
+                                            <div class="error-msg-wrapper">
+                                                <span class="error-msg" *ngIf="phoneFormError['phone'] && phoneFormError['phone'].touched && phoneFormError['phone'].errors?.['required']">This field is required.</span>
+                                                <span class="error-msg" *ngIf="phoneFormError['phone'] && phoneFormError['phone'].touched && phoneFormError['phone'].errors?.['pattern']">Please enter a valid contact number with country code without space.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-lg btn-blue w-100" [disabled]="!formPhoneLogin.valid">Log in</button>
+                                    </div>
+                                </form>
+                            </ng-container>
+
+                            <!-- OTP Inout Area -->
+                            <ng-container *ngIf="isPhoneStep2">
+                                <form [formGroup]="formOtpLogin" (ngSubmit)="submitOtpLogin()">
+                                    <div class="form-height-login">
+                                        <!-- OTP -->
+                                        <div class="form-group">
+                                            <label class="label-otp">Enter the OTP to verify your phone*</label>
+                                            <div class="otp-input-group">
+                                                <input class="form-control input-40" type="text" formControlName="otp1" [(ngModel)]="otp1" maxlength="1" autocomplete="off" />
+                                                <input class="form-control input-40" type="text" formControlName="otp2" [(ngModel)]="otp2" maxlength="1" autocomplete="off" />
+                                                <input class="form-control input-40" type="text" formControlName="otp3" [(ngModel)]="otp3" maxlength="1" autocomplete="off" />
+                                                <input class="form-control input-40" type="text" formControlName="otp4" [(ngModel)]="otp4" maxlength="1" autocomplete="off" />
+                                                <span class="status-otp text-blue">
+                                                    <span class="icon icon-shield-check me-1"></span>OTP to verified.
+                                                </span>
+                                            </div>
+                                            <div class="error-msg-wrapper">
+                                                <span class="error-msg">Please enter valid OTP</span>
+                                            </div>
+                                            <div class="mt-3">
+                                                <p class="font-14 mb-1"> You can resend OTP after 10s</p>
+                                                <p class="font-14">Didn't receive an OTP? <a class="cursor-pointer text-blue">Resend</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Button -->
+                                    <div class="btn-group">
+                                        <button type="submit" class="btn btn-lg btn-blue w-100" [disabled]="!formOtpLogin.valid">Log in</button>
+                                    </div>
+                                </form>
+                            </ng-container>
+                        </div>
+                    </div>  
+                </div>
+               
+                    <div  *ngIf="!isName" class="btn-group">
+                      <button class="btn btn-lg btn-blue w-100"  (click)="login()">Login With Microsoft <i class="fab fa-microsoft"></i></button>
+                    </div>
+                    <div *ngIf="isName">
+                      <span class="UserNameCs"> User Name:- {{this.UserName}}</span>
+                      <button class="logoutbtn" *ngIf="isUserLoggedIn()" (click)="logout()"> Logout</button>
+                    </div>
+                  
+             
+                <!-- Register & Forgot Password Message -->
+                <div class="acc-bottom-action text-center">
+                    <p class="mb-4">Don't have an account? <a class="text-blue text-blue-border-hover text-decoration-none" routerLink="/register">Register</a></p>
+                    <a class="text-blue text-blue-border-hover text-decoration-none cursor-pointer" routerLink="/forgot-password">Forgot password?</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="side-navigation" [ngClass]="isSideNavCollapse ? 'side-nav-collapse' : ''">
+    <div class="side-navigation-inner">
+        <!-- Top Navigation Area -->
+        <div class="side-navigation-top">
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-text">STARTFORM</div>
+                <img src="/assets/startform-logo.svg" alt="Startform" title="Startform"/>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation-area">
+                <ul class="navigation-list" *ngIf="!isOnboardingStepVisible">
+                    <li class="item">
+                        <a class="link" routerLink="dashboard" routerLinkActive="active">
+                            <span class="icon icon-dashboard"></span>
+                            <span class="link-text">Dashboard</span>
+                            
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link" routerLink="diagnose" routerLinkActive="active">
+                            <span class="icon icon-diagnose font-18"></span>
+                            <span class="link-text">Diagnose</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link">
+                            <span class="icon icon-developer"></span>
+                            <span class="link-text">
+                                Develop Strategy <em class="coming-soon">Coming Soon</em>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a class="link">
+                            <span class="icon icon-deploy"></span>
+                            <span class="link-text">
+                                Deploy Strategy <em class="coming-soon">Coming Soon</em>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Step Navigation Listing for Engagement, Pesonal Info, Company Info -->
+                <ul class="navigation-steps" *ngIf="isOnboardingStepVisible">
+                    <li class="item" routerLinkActive="active" [ngClass]="{'complete': isEngagementComplete}">
+                        <a class="link" routerLink="onboarding/engagement">Sign Engagement</a>
+                    </li>
+                    <li class="item" routerLinkActive="active" [ngClass]="{'complete': isPersonalInfoComplete , 'link-disabled': !isEngagementComplete}">
+                        <a class="link" routerLink="onboarding/personal-info">Personal Info</a>
+                    </li>
+                    <!-- <li class="item" routerLinkActive="active" [ngClass]="{'complete': isCompanyInfoComplete, 'link-disabled': !isPersonalInfoComplete || !isEngagementComplete}"> -->
+                    <li class="item" routerLinkActive="active" [ngClass]="{'complete': isCompanyInfoComplete}">
+                        <a class="link" routerLink="onboarding/company-info">Company Info</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Area-->
+        <div class="side-navigation-bottom">
+            <ul class="navigation-list">
+                <li class="item">
+                    <a class="link">
+                        <span class="icon icon-chat-bubble"></span>
+                        Contact Us / Support
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="link cursor-pointer" (click)="logout()">
+                        <span class="icon icon-logout"></span>
+                        Logout
+                    </a>
+                </li>
+            </ul>
+
+            <div class="copy-right"><em>&copy;</em> StartformX 2023</div>
+        </div>
+
+        <a class="btn-toggle" (click)="collapseSideNavigation()">
+            <span class="icon icon-arrow-back"></span>
+        </a>
+    </div>
+</div>

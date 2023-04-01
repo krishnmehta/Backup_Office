@@ -1,0 +1,92 @@
+/*Mixin Font-family*/
+@mixin font-family($value) {
+    font-family: $value;
+}
+
+/*Mixin Font-weight*/
+@mixin fw($value) {
+    font-weight: $value;
+}
+
+/*Mixin Font-size*/
+@mixin fs($value){
+    font-size: rem($value);
+}
+
+/*Mixin line-height*/
+@mixin lh($value){
+    line-height: #{$value}px;
+}
+
+/*Mixin Media Breakpoints*/
+
+//Min-Width Breakpoint
+@mixin responsive-device-up($name, $breakpoint: $breakPoints){
+    $min: map-get($breakpoint, $name);
+    @media (min-width: #{$min}px) {
+        @content;
+    }  
+}
+
+
+//Max-Width Breakpoint
+@mixin responsive-device-down($name, $breakpoint: $breakPoints){
+    $max: map-get($breakpoint, $name);
+    @media (max-width: #{$max - .02}px) {
+        @content;
+    }
+}
+
+/*Mixins Transition*/
+@mixin transition($transition...) {
+    transition: $transition;
+    -o-transition: $transition;
+    -moz-transition: $transition;
+}
+
+/*Mixins for Transform Browser Prefixs*/
+@mixin transform($transform){
+    transform: $transform;
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    
+}
+
+//Rotate
+@mixin rotate($value){
+    @include transform(rotate(#{$value}deg));
+}
+
+//Scale
+@mixin scale($value){
+    @include transform(scale($value));
+}
+
+//Translate
+@mixin translate($x, $y){
+    @include transform(translate($x, $y));
+}
+
+//Translate-X
+@mixin translateX($x){
+    @include transform(translateX($x));
+}
+
+//Translate-Y
+@mixin translateY($y){
+    @include transform(translateY($y));
+}
+
+/*Mixin for input placeholder*/
+@mixin placeholder{
+    ::placeholder {
+        @content;
+    }
+    ::-moz-placeholder{
+        @content;
+    }
+    ::-webkit-input-placeholder { 
+        @content;
+    } 
+}

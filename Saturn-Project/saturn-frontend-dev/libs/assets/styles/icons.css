@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'saturn';
+  src:  url('../fonts/saturn.eot?k98t1c');
+  src:  url('../fonts/saturn.eot?k98t1c#iefix') format('embedded-opentype'),
+    url('../fonts/saturn.ttf?k98t1c') format('truetype'),
+    url('../fonts/saturn.woff?k98t1c') format('woff'),
+    url('../fonts/saturn.svg?k98t1c#saturn') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'saturn' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-developer:before {
+  content: "\e912";
+}
+.icon-diagnose:before {
+  content: "\e913";
+}
+.icon-deploy:before {
+  content: "\e914";
+}
+.icon-arrow-down:before {
+  content: "\e915";
+}
+.icon-dashboard:before {
+  content: "\e916";
+}
+.icon-search:before {
+  content: "\e911";
+}
+.icon-upload:before {
+  content: "\e910";
+}
+.icon-arrow-right:before {
+  content: "\e90f";
+}
+.icon-eye-open:before {
+  content: "\e90e";
+}
+.icon-eye-off:before {
+  content: "\e90b";
+}
+.icon-shield-check:before {
+  content: "\e905";
+}
+.icon-account-user:before {
+  content: "\e906";
+}
+.icon-lock:before {
+  content: "\e90a";
+}
+.icon-file:before {
+  content: "\e90c";
+}
+.icon-phone:before {
+  content: "\e90d";
+}
+.icon-desktop:before {
+  content: "\e903";
+}
+.icon-mail:before {
+  content: "\e904";
+}
+.icon-arrow-back:before {
+  content: "\e902";
+}
+.icon-user:before {
+  content: "\e900";
+}
+.icon-user-tie:before {
+  content: "\e901";
+}
+.icon-chat-bubble:before {
+  content: "\e907";
+}
+.icon-logout:before {
+  content: "\e908";
+}
+.icon-check:before {
+  content: "\e909";
+}

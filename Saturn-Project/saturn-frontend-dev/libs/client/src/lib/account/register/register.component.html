@@ -1,0 +1,186 @@
+<div class="acc-wrapper">
+    <div class="acc-wrapper-inner">
+        <!-- Left Side Area -->
+        <div class="acc-left">
+            <div class="acc-left-inner">
+                <h1 class="title">
+                    The Strategy Platform For Your Business.
+                </h1>
+            </div>
+        </div>
+        <!-- Right Side Area -->
+        <div class="acc-right">
+            <div class="acc-right-inner">
+                
+                <!-- Logo and Page Title -->
+                <div class="logo-title">
+                    <!-- Logo-->
+                    <div class="logo">
+                        <span class="logo-text">STARTFORM</span>
+                        <img src="/assets/startform-logo.svg" alt="Startform" title="Startform"/>
+                    </div>
+    
+                    <!-- Page Title-->
+                    <div class="page-title">
+                        Register
+                    </div>
+                </div>
+    
+                <!-- Registration Form Area -->
+                <div class="form-registration">
+                    <!-- Register Form Step 1 -->
+                    <ng-container *ngIf="isRegisterStep1">
+                        <form [formGroup]="formRegisterStep1" (ngSubmit)="submitRegisterFormStep1()">
+                            <!-- First Name -->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-account-user"></span>
+                                    <input class="form-control input-lg input-icon" type="text" placeholder="First name*" formControlName="firstName" [(ngModel)]="registerModel.firstName" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep1['firstName'] && errorStep1['firstName'].touched && errorStep1['firstName'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep1['firstName'] && errorStep1['firstName'].touched && errorStep1['firstName'].errors?.['pattern']">First Name must have 20 characters.</span>
+                                </div>
+                            </div>
+
+                            <!-- Last Name -->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-account-user"></span>
+                                    <input class="form-control input-lg input-icon" type="text" placeholder="Last name*" formControlName="lastName" [(ngModel)]="registerModel.lastName" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep1['lastName'] && errorStep1['lastName'].touched && errorStep1['lastName'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep1['lastName'] && errorStep1['lastName'].touched && errorStep1['lastName'].errors?.['pattern']">Last Name must have 20 characters.</span>
+                                </div>
+                            </div>
+
+                            <!-- Company Name -->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-desktop"></span>
+                                    <input class="form-control input-lg input-icon" type="text" placeholder="Company name*" formControlName="companyName" [(ngModel)]="registerModel.companyName" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep1['companyName'] && errorStep1['companyName'].touched && errorStep1['companyName'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep1['companyName'] && errorStep1['companyName'].touched && errorStep1['companyName'].errors?.['maxlength']">Company Name must have 20 characters.</span>
+                                </div>
+                            </div>
+
+                            <!-- Eamil Address -->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-mail"></span>
+                                    <input class="form-control input-lg input-icon" type="text" placeholder="Your work email address*" formControlName="email" [(ngModel)]="registerModel.email" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-z0-9.-]+\.[a-zA-z]{2,4}$" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep1['email'] && errorStep1['email'].touched && errorStep1['email'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep1['email'] && errorStep1['email'].touched && errorStep1['email'].errors?.['pattern']">Email can only contain alphanumeric characters followed by (@) and (.) no other special characters are allowed.</span>
+                                </div>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-lg btn-blue w-100" [disabled]="!formRegisterStep1.valid">Create Account</button>
+                            </div>
+                        </form>
+                    </ng-container>
+
+                    <!-- Register Form Step 2 -->
+                    <ng-container *ngIf="isRegisterStep2">
+                        <form [formGroup]="formRegisterStep2" (ngSubmit)="submitRegisterFormStep2()">
+
+                            <!-- Contact Number-->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-phone"></span>
+                                    <input class="form-control input-lg input-icon" type="text" placeholder="Your contact number*" formControlName="phoneNumber" [(ngModel)]="registerModel.phoneNumber" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep2['phoneNumber'] && errorStep2['phoneNumber'].touched && errorStep2['phoneNumber'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep2['phoneNumber'] && errorStep2['phoneNumber'].touched && errorStep2['phoneNumber'].errors?.['pattern']">Please enter a valid contact number with country code without space.</span>
+                                </div>
+                            </div>
+
+                            <!-- Pan Number -->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-file"></span>
+                                    <input class="form-control input-lg input-icon text-uppercase" type="text" placeholder="Company PAN number*" formControlName="panNumber" [(ngModel)]="registerModel.panNumber" maxlength="10" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep2['panNumber'] && errorStep2['panNumber'].touched && errorStep2['panNumber'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep2['panNumber'] && errorStep2['panNumber'].touched && errorStep2['panNumber'].errors?.['pattern']">Pan Number must have 10 Alphanumerics no special characters are allowed</span>
+                                </div>
+                            </div>
+
+
+                            <!-- Password Number -->
+                            <div class="form-group">
+                                <div class="form-input-group">
+                                    <span class="icon icon-lock"></span>
+                                    <input class="form-control input-lg input-icon" type="password" placeholder="Create a password*" formControlName="password" [(ngModel)]="registerModel.password" autocomplete="false" />
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="errorStep2['password'] && errorStep2['password'].touched && errorStep2['password'].errors?.['required']">This field is required.</span>
+                                    <span class="error-msg" *ngIf="errorStep2['password'] && errorStep2['password'].touched && errorStep2['password'].errors?.['pattern']">Password must contain 8-15 characters including Lower Case(a-z), Upper Case(A-Z), Number(0-9), Special Character(!@#$%^&*).</span>
+                                </div>
+                            </div>
+
+                            <!-- Button-->
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-lg btn-blue w-100" [disabled]="!formRegisterStep2.valid">Create Account</button>
+                            </div>
+                        </form>
+                    </ng-container>
+
+                    <!-- Register Form Step 3 -->
+                    <ng-container *ngIf="isRegisterStep3">
+                        <form [formGroup]="formRegisterStep3" (ngSubmit)="submitRegisterFormStep3()">
+                            <!-- OTP -->
+                            <div class="form-group">
+                                <label class="label-otp">Enter the OTP to verify your phone*</label>
+                                <div class="otp-input-group">
+                                    <input class="form-control input-40" type="text" formControlName="otp1" [(ngModel)]="otp1" maxlength="1" autocomplete="off" />
+                                    <input class="form-control input-40" type="text" formControlName="otp2" [(ngModel)]="otp2" maxlength="1" autocomplete="off" />
+                                    <input class="form-control input-40" type="text" formControlName="otp3" [(ngModel)]="otp3" maxlength="1" autocomplete="off" />
+                                    <input class="form-control input-40" type="text" formControlName="otp4" [(ngModel)]="otp4" maxlength="1" autocomplete="off" />
+                                    <span class="status-otp text-blue d-flex align-items-center">
+                                        <span class="icon icon-shield-check me-1"></span>OTP to verified.
+                                    </span>
+                                </div>
+                                <div class="error-msg-wrapper">
+                                    <span class="error-msg" *ngIf="!isOtpVerified && this.isOtpSubmitted">Please enter valid OTP</span>
+                                </div>
+                                <div class="mt-3">
+                                    <p class="font-14 mb-1" *ngIf="otpSeconds !== 0 && !isOtpVerified"> You can resend OTP after {{otpSeconds}}s</p>
+                                    <p class="font-14">Didn't receive an OTP? <a class="cursor-pointer text-blue" (click)="sendOtp()" [ngClass]="(otpSeconds !== 0 && !isOtpVerified) ? 'disabled' : ''">Resend</a></p>
+                                </div>
+                            </div>
+
+                            <!-- Terms and Policy-->
+                            <div class="form-group terms-policy-group">
+                               <div class="custom-checkcontainer">
+                                    <label class="checkcontainer-label" for="termsPolicy1">
+                                        <input class="checkcontainer-input" type="radio" formControlName="termsPolicy" value="accept" name="termsPolicy" id="termsPolicy1"/>
+                                        <span class="checkcontainer-span radio"></span>
+                                        By creating an account you agree to the <a href="#" class="text-blue">terms of use</a> and our <a href="#" class="text-blue">privacy policy.</a>
+                                    </label>
+                               </div>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-lg btn-blue w-100" [disabled]="!formRegisterStep3.valid">Create Account</button>
+                            </div>
+                        </form>
+                    </ng-container>
+
+                    <div class="acc-bottom-action text-center">
+                        <p>Already have an account? <a class="text-blue text-blue-border-hover text-decoration-none" routerLink="/login">Log in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

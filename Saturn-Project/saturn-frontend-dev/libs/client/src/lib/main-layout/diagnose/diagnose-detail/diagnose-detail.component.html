@@ -1,0 +1,35 @@
+<div class="diagnose-detail-wrapper">
+    <!-- Left Sidebar -->
+    <div class="left-side">
+        <!-- Left Sidebar Top -->
+        <div class="left-side-top">
+            <ul class="navigation-steps">
+                <li class="item" [ngClass]="{'active':  stepCount === 1, 'complete': isQuestionnaireFinish}">
+                    <a class="link" (click)="redirectStep(1)">Questionnaire</a>
+                </li>
+                <li class="item" [ngClass]="{'active':  stepCount === 2, 'complete': isDataUploadFinish}">
+                    <a class="link" (click)="redirectStep(2)">Upload Data</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Left Sidebar Bottom -->
+        <div class="left-side-bottom">
+            <a class=""> Learn More</a>
+        </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="right-side">
+        
+        <!-- Questionnaire Section -->
+        <ng-container *ngIf="stepCount === 1">
+            <saturn-frontend-questionnaire></saturn-frontend-questionnaire>
+        </ng-container>
+
+        <!-- Upload Data Section -->
+        <ng-container *ngIf="stepCount === 2">
+            <saturn-frontend-data-upload></saturn-frontend-data-upload>
+        </ng-container>
+    </div>
+</div>

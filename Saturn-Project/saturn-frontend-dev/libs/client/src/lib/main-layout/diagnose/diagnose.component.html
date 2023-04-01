@@ -1,0 +1,33 @@
+<div class="diagnose-wrapper">
+    <!-- Feature Product List (Only First Product - Top Row) -->
+    <div class="feature-product-card" *ngIf="productListing?.length">
+        <div class="product-title">
+            {{productListing[0].name}}
+        </div> 
+        <div class="product-description">
+            {{productListing[0].description}}
+        </div>
+        <button class="btn btn-blue btn-start no-box-shadow" routerLink="{{productListing[0].id}}">Start Now!</button>
+    </div>
+
+    <!-- Product Listing (Bottom Row) -->
+    <div class="product-list-wrapper card">
+        <!-- Title -->
+        <h2 class="sub-title">Trending Insights</h2>
+        <div class="product-listing">
+            <!-- Product Listing (Except First Product - Bottom Row) -->
+            <div class="product-item" *ngFor="let item of productListing | slice:1 let i = index">
+                <div class="img-area">
+                    <img src="/assets/product-img.jpg" alt="Product" />
+                    <button class="btn btn-blue btn-start no-box-shadow" routerLink="{{item.id}}">Start Now!</button>
+                </div>
+                <div class="product-title">
+                    {{item.name}}
+                </div> 
+                <div class="product-description">
+                    {{item.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

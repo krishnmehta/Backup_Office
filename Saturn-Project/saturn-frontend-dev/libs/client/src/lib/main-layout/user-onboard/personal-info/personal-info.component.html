@@ -1,0 +1,234 @@
+<!-- Personal Information Area-->
+<div class="personal-info-wrapper card-form-area card">
+
+  <h1>Let's set up your personal info</h1>
+  <ng-container *ngIf="isFormIdFetched">
+    <iframe width="100%" height="500px" [src]="getFormSrc()" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+  </ng-container>
+  <button class="btn btn-blue btn-lg no-box-shadow btn-save-continue" type="submit"
+          (click)="navigateToComapnyInfo()">Go to Company Info</button>
+  <div class="form-wrapper" *ngIf="false">
+    <form [formGroup]="formPersonalInfo">
+
+      <!-- FirstName -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div>
+            <label class="form-label-icon">
+              What's Your First Name?*
+            </label>
+            <input class="form-control form-control-gray" type="text" formControlName="firstName"
+              placeholder="First Name" autocomplete="false" />
+            <div class="error-msg-wrapper">
+              <span class="error-msg"
+                *ngIf="formError['firstName'] && formError['firstName'].touched && formError['firstName'].errors?.['required']">This
+                field is required.</span>
+              <span class="error-msg"
+                *ngIf="formError['firstName'] && formError['firstName'].touched && formError['firstName'].errors?.['pattern']">First
+                Name must have 20 characters only.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LastName-->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div>
+            <label class="form-label-icon">
+              What's Your Last Name?*
+            </label>
+            <input class="form-control form-control-gray" type="text" formControlName="lastName" placeholder="Last Name"
+              autocomplete="false" />
+            <div class="error-msg-wrapper">
+              <span class="error-msg"
+                *ngIf="formError['lastName'] && formError['lastName'].touched && formError['lastName'].errors?.['required']">This
+                field is required.</span>
+              <span class="error-msg"
+                *ngIf="formError['lastName'] && formError['lastName'].touched && formError['lastName'].errors?.['pattern']">Last
+                Name must have 20 characters only.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload Photo -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div>
+            <label class="form-label-icon">Upload Your Professional Looking Photo.</label>
+            <div class="file-upload-box">
+              <input id="profileImageUpload" type="file" accept=".png, .jpg, .jpeg" #fileInput
+                (change)="selectFile($event)" />
+              <div class="d-flex align-items-start">
+                <label class="file-upload" [ngClass]="{'preview-img-box': previewImage}" for="profileImageUpload">
+                  <ng-container *ngIf="!previewImage">
+                    <span class="icon icon-upload"></span>
+                    Click To Upload
+                  </ng-container>
+                  <ng-container *ngIf="previewImage">
+                    <img [src]="previewImage" alt="Preview Image" />
+                    <span class="change-image">Change Image</span>
+                  </ng-container>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div>
+            <label class="form-label-icon">What's Your Email?*</label>
+            <input class="form-control form-control-gray" type="text" formControlName="email"
+              placeholder="Email Address" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-z0-9.-]+\.[a-zA-z]{2,4}$"
+              autocomplete="false" />
+            <div class="error-msg-wrapper">
+              <span class="error-msg"
+                *ngIf="formError['email'] && formError['email'].touched && formError['email'].errors?.['required']">This
+                field is required.</span>
+              <span class="error-msg"
+                *ngIf="formError['email'] && formError['email'].touched && formError['email'].errors?.['pattern']">Email
+                can only contain alphanumeric characters followed by (@) and (.) no other special characters are
+                allowed.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input form group-->
+          <div formGroupName="location">
+            <label class="form-label-icon"> Where's Your Company Headquarter Located?</label>
+            <input class="form-control form-control-gray mb-4" autocomplete="false" placeholder="Enter Address"
+              formControlName="address" />
+            <div class="input-group mb-4">
+              <input class="form-control form-control-gray" type="text" placeholder="City" autocomplete="false"
+                formControlName="city" />
+              <input class="form-control form-control-gray" type="text" placeholder="State" autocomplete="false"
+                formControlName="state" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Number -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div>
+            <label class="form-label-icon">What's Your Contact Number?*</label>
+            <input class="form-control form-control-gray" type="text" formControlName="contactNumber"
+              placeholder="Contact Number" autocomplete="false" />
+            <div class="error-msg-wrapper">
+              <span class="error-msg"
+                *ngIf="formError['contactNumber'] && formError['contactNumber'].touched && formError['contactNumber'].errors?.['required']">This
+                field is required.</span>
+              <span class="error-msg"
+                *ngIf="formError['contactNumber'] && formError['contactNumber'].touched && formError['contactNumber'].errors?.['pattern']">Please
+                enter a valid contact number with country code without space.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Summary -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div>
+            <label class="form-label-icon">What's Your Professional Summary?</label>
+            <textarea class="form-control form-control-gray"
+              placeholder="Write Something About Your Professional Life..." formControlName="summary"
+              autocomplete="false"></textarea>
+            <div class="error-msg-wrapper">
+              <span class="error-msg"
+                *ngIf="formError['summary'] && formError['summary'].touched && formError['summary'].errors?.['maxlength']">Professional
+                summary contains maximum 300 characters.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Employee/Owner -->
+      <div class="form-group mb-4">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div class="mb-4">
+            <label class="form-label-icon"> Are You Owner/Employee? </label>
+
+            <div class="radio-group">
+              <label for="employee" class="btn-radio-label">
+                <input type="radio" name="employeeOwner" id="employee" value="Owner" formControlName="employeeOwner"
+                  [checked]="" />
+                <span class="radio-text">Owner</span>
+
+              </label>
+              <label class="btn-radio-label">
+                <input type="radio" name="employeeOwner" id="employee" value="Employee"
+                  formControlName="employeeOwner" />
+                <span class="radio-text">Employee</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competency -->
+      <div class="form-group">
+        <div class="form-flex-group">
+          <!-- Arrow -->
+          <span class="icon icon-arrow-right"></span>
+          <!-- Input -->
+          <div class="mb-4">
+            <label class="form-label-icon">What's Your Competency? <span class="font-13">(5 Competencies
+                Only)</span></label>
+            <div>
+
+              <ng-select #ngSelect formControlName="competency" [(ngModel)]="selectedComptency" [items]="competencyList"
+                [hideSelected]="true" [multiple]="true" [maxSelectedItems]="5" bindLabel="title" [clearable]="false"
+                placeholder="Search Your Competency Here...">
+              </ng-select>
+              <div class="error-msg-wrapper">
+                <span class="error-msg" *ngIf="selectedComptency.length > 4">Only 5 tags are allowed in
+                  competency</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-blue btn-lg no-box-shadow btn-save-continue" type="submit"
+          (click)="isSaveClicked = false; submitPersonalInfo()" [disabled]="!formPersonalInfo.valid">Save &
+          Continue</button>
+        <button class="btn btn-blue-outline btn-lg no-box-shadow btn-save" type="submit"
+          (click)="isSaveClicked = true; submitPersonalInfo();" [disabled]="!formPersonalInfo.valid">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

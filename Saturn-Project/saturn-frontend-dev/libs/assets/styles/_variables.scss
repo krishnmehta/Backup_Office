@@ -1,0 +1,44 @@
+/* Colors*/
+$white: #FFFFFF;
+$black-pure: #000000;
+$black: #333333;
+$blue: #2B50ED;
+$gray-dusty: #989898;
+$gray-bright: #ECECEC;
+$blue-light: #D1E1F5;
+$gray-bermuda: #7288A1;
+$danger: #FF0000;
+$success: #03c76e;
+$green-jade: #30D3AA;
+
+$colors: (
+    'white': $white,
+    'black-pure': $black-pure,
+    'black': $black,
+    'blue': $blue,
+    'gray-dusty': $gray-dusty,
+    'gray-bermuda': $gray-bermuda,
+    'green-jade': $green-jade,
+);
+
+/* Fonts */
+$saturn-icon: 'saturn';
+$montserrat: "Montserrat";
+$fontList: 10, 11, 12,14,16,18,20,22,24;
+
+/* body variables */
+$body-font-color: $gray-dusty;
+$body-font-weight: 400;
+$body-font-family: $montserrat;
+$body-line-height: 1.2;
+
+/* Breakpoints */
+$breakPoints:(
+    xss: 640,
+    xs: 768,
+    sm: 992,
+    md: 1080,
+    lg: 1440,
+    xl: 1600,
+    xxl: 1800,
+)

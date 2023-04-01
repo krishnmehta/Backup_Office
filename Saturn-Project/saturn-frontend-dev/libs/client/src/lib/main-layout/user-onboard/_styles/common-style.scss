@@ -1,0 +1,83 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.card-form-area {
+    color: $black;
+    h1 {
+        @include fs(16);
+        @include fw(700);
+        @include lh(19);
+        margin-bottom: rem(20);
+    }
+    .form-wrapper {
+        .form-group {
+            margin-bottom: rem(18)
+        }
+
+        label {
+            @include fs(15);
+        }
+
+        .form-label-icon {
+            margin-bottom: rem(20);
+        }
+        
+        .form-flex-group {
+            max-width: 530px;
+        }
+
+        .input-group {
+            gap: rem(20);
+        } 
+
+        .form-control {
+            max-width: 530px;
+        }
+        textarea {
+            min-height: 140px;
+            resize: none;
+        }
+
+        .btn-save {
+            min-width: 104px;
+            margin-left: rem(20);
+            &-continue {
+                min-width: 260px;
+            }
+        }
+        .radio-group {
+            display: flex;
+            align-items: flex-start;
+            gap: rem(10);
+
+            .btn-radio-label {
+                position: relative;
+                cursor: pointer;
+
+                .radio-text {
+                    display: inline-block;
+                    background-color: $gray-bright;
+                    @include fs(14);
+                    @include lh(18);
+                    border: 2px solid transparent;
+                    border-radius: rem(5);
+                    padding: rem(11) rem(60);
+                }
+                input { 
+                    position: absolute;
+                    visibility: hidden;
+                    opacity: 0;
+
+                    &:checked ~ .radio-text {
+                        background-color: transparent;
+                        border-color: $blue;
+                        @include fw(700);
+                        color: $blue;
+                    }
+                }
+            }
+            
+        }
+    }
+}

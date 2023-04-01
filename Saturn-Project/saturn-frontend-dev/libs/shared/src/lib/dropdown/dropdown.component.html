@@ -1,0 +1,9 @@
+<div ngbDropdown class="btn-select">
+    <button type="button" class="btn-select-title" id="{{dropdownId}}" ngbDropdownToggle>
+        {{selected}}
+        <span class="icon icon-arrow-down"></span>
+    </button>
+    <div ngbDropdownMenu class="btn-select-menu">
+        <button type="button" ngbDropdownItem class="btn-select-options" [ngClass]="{'select': item.isActive}" *ngFor="let item of options; let index = index" (click)="setCurrentOption($event, index)" [value]="item.name" [disabled]="item.disabled!">{{item.name}}</button>
+    </div>
+</div>

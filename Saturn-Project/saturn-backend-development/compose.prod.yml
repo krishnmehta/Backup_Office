@@ -1,0 +1,42 @@
+services:
+  app:
+    image: ${IMAGE_NAME}
+    container_name: theraparea-app
+    environment:
+      AWS_DEFAULT_REGION: us-east-1
+      RUNNING_ENVIRONMENT: Development
+      ASPNETCORE_URLS: "https://+"
+      ASPNETCORE_HTTPS_PORT: 5001
+      ASPNETCORE_Kestrel__Certificates__Default__Password: P@ssw0rd
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /app/certificate.pfx
+    depends_on:
+      migrator:
+        condition: service_completed_successfully
+      redis:
+        condition: service_started
+    ports:
+      - "5001:443"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: us-east-1
+        awslogs-group: dev.backend.therap
+        awslogs-datetime-format: '\[%H:%M:%S \]'
+    healthcheck:
+      test: ["CMD","curl","-f","https://localhost/swagger/index.html"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+ 
+  migrator:
+    image: ${MIGRATOR_IMAGE_NAME}
+    container_name: theraparea-migrator
+    environment:
+      AWS_DEFAULT_REGION: us-east-1
+      RUNNING_ENVIRONMENT: Development
+    depends_on:
+      db:
+        condition: service_healthy
+
+  redis:
+    image: redis:latest

@@ -1,0 +1,48 @@
+@import 'functions'; 
+@import 'variables';
+@import 'mixins';
+
+.diagnose-detail-wrapper {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    gap: rem(41);
+
+    /* Left Sidebar */
+    .left-side {
+        max-width: 282px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: rem(60);
+        background-color: $white; 
+        border-radius: rem(10);
+        padding: rem(40) 0 rem(40) rem(30);
+        height: 100%;
+
+        &-top {
+            .navigation-steps {
+                .item {
+                    .link {
+                        color: $black;
+                    }
+                }
+            }
+        }
+
+        &-bottom {
+            a {
+                @include fs(15);
+                @include lh(19);
+                text-decoration: underline;
+                color: $black;
+            }
+        }
+    }
+
+    /* Right Sidebar */
+    .right-side {
+        flex: 1;
+    }
+}

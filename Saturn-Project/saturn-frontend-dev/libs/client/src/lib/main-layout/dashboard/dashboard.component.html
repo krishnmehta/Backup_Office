@@ -1,0 +1,20 @@
+<div class="dashboard-wrapper card">
+  <!-- Title -->
+  <h1>Select Insight</h1>
+
+  <!-- Product Dropdown Listing -->
+  <div class="dashboard-dropdown">
+    <saturn-frontend-dropdown [options]="productListing" dropdownId="dashboardDropdown" [selected]="currentOptionValue"
+      (currentSelectionEventEmit)="getCurrentSelection($event)"></saturn-frontend-dropdown>
+  </div>
+
+  <!-- Product Report Listing -->
+  <div class="dashboard-product-report-listing">
+    <ng-container *ngFor="let items of productListing">
+      <div class="product-report-item" *ngIf="items.name === currentOptionValue && isReportAvailable">
+        <powerbi-report [embedConfig]="embedReportConfig" cssClassName="reportClass">
+        </powerbi-report>
+      </div>
+    </ng-container>
+  </div>
+</div>

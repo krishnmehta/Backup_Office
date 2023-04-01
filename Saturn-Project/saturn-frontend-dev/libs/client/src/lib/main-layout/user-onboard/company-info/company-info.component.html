@@ -1,0 +1,176 @@
+<!-- Company Information Area -->
+<div class="company-info-wrapper card-form-area card">
+    <h1>Let's set up your company info</h1>
+    <ng-container *ngIf="isFormIdFetched">
+        <iframe width="100%" height="500px" [src]="getFormSrc()" frameborder="0" marginwidth="0" marginheight="0"
+            style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen
+            mozallowfullscreen msallowfullscreen> </iframe>
+    </ng-container>
+    <button class="btn btn-blue btn-lg no-box-shadow btn-save-continue" type="submit"
+        (click)="navigateToDashboard()">Go to Dashboard</button>
+    <div class="form-wrapper" *ngIf="false">
+        <form [formGroup]="formCompanyInfo" (ngSubmit)="submitCompanyProfile()">
+            <!-- Company Profile Logo -->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Logo -->
+                    <div>
+                        <label class="form-label-icon">Upload Your Company's Logo.</label>
+                        <div class="file-upload-box">
+                            <input id="companyImageUpload" type="file" accept=".png, .jpg, .jpeg" #compnayFileInput
+                                (change)="selectCompanyLogo($event)" />
+                            <div class="d-flex align-items-start">
+                                <label class="file-upload" [ngClass]="{'preview-img-box': previewImage}"
+                                    for="companyImageUpload">
+                                    <ng-container *ngIf="!previewImage">
+                                        <span class="icon icon-upload"></span>
+                                        Click To Upload <em>250 x 150 px</em>
+                                    </ng-container>
+                                    <!-- Preview Image -->
+                                    <ng-container *ngIf="previewImage">
+                                        <img [src]="previewImage" alt="Company" />
+                                        <span class="change-image">Change Image</span>
+                                    </ng-container>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Brief -->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Input -->
+                    <div>
+                        <label class="form-label-icon">Describe Your Business In Brief*</label>
+                        <textarea class="form-control form-control-gray" formControlName="businessBrief"
+                            [(ngModel)]="businessBriefModel" maxlength="300"
+                            placeholder="Write Something About Your Business..." autocomplete="false"></textarea>
+                        <span> {{businessBriefModel.length >= 0 ? (300 - businessBriefModel.length) : 0}} Characters
+                            Remaining</span>
+                        <div class="error-msg-wrapper">
+                            <span class="error-msg"
+                                *ngIf="formError['businessBrief'] && formError['businessBrief'].touched && formError['businessBrief'].errors?.['required']">This
+                                field is required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Company Website-->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Input -->
+                    <div>
+                        <label class="form-label-icon">Your Company's Website</label>
+                        <input type="text" class="form-control form-control-gray" formControlName="companyWebsite"
+                            placeholder="www.moneyheist.com" autocomplete="false" />
+                        <div class="error-msg-wrapper">
+                            <span class="error-msg"
+                                *ngIf="formError['companyWebsite'] && formError['companyWebsite'].touched && formError['companyWebsite'].errors?.['pattern']">Please
+                                enter valid company website of format https://companydomain.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Activity -->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Input -->
+                    <div>
+                        <label class="form-label-icon">Nature Of Business Activities*</label>
+                        <saturn-frontend-dropdown dropdownId="businessActivity" [options]="businessActivityList"
+                            [selected]="businessActivitySelected"
+                            (currentSelectionEventEmit)="setBusinessActivityValue($event)">
+                        </saturn-frontend-dropdown>
+                        <div class="error-msg-wrapper">
+                            <span class="error-msg"
+                                *ngIf="formError['businessActivity'] && formError['businessActivity'].invalid">This
+                                field is required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Industry -->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Input -->
+                    <div>
+                        <label class="form-label-icon">Primary Industry*</label>
+                        <saturn-frontend-dropdown dropdownId="primaryIndustry" [options]="primaryIndustryList"
+                            [selected]="primaryIndustrySelected"
+                            (currentSelectionEventEmit)="setPrimaryIndustryValue($event)">
+                        </saturn-frontend-dropdown>
+                        <div class="error-msg-wrapper">
+                            <span class="error-msg"
+                                *ngIf="formError['primaryIndustry'] && formError['primaryIndustry'].invalid">This field
+                                is required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Industry -->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Input -->
+                    <div>
+                        <label class="form-label-icon">Secondary Industry*</label>
+                        <saturn-frontend-dropdown dropdownId="secondaryIndustry" [options]="secondaryIndustryList"
+                            [selected]="secondaryIndustrySelected"
+                            (currentSelectionEventEmit)="setSecondaryIndustryValue($event)">
+                        </saturn-frontend-dropdown>
+                        <div class="error-msg-wrapper">
+                            <span class="error-msg"
+                                *ngIf="formError['secondaryIndustry'] && formError['secondaryIndustry'].invalid">This
+                                field is required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Customer -->
+            <div class="form-group">
+                <div class="form-flex-group">
+                    <!-- Arrow -->
+                    <span class="icon icon-arrow-right"></span>
+                    <!-- Input -->
+                    <div>
+                        <label class="form-label-icon">Primary End Customers Being Served*</label>
+                        <saturn-frontend-dropdown dropdownId="primaryCustomer" [options]="primaryCustomerList"
+                            [selected]="primaryCustomerSelected"
+                            (currentSelectionEventEmit)="setPrimaryCustomerValue($event)">
+                        </saturn-frontend-dropdown>
+                        <div class="error-msg-wrapper">
+                            <span class="error-msg"
+                                *ngIf="formError['primaryCustomer'] && formError['primaryCustomer'].invalid">This field
+                                is required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <button class="btn btn-blue btn-lg no-box-shadow btn-save-continue">Save & Continue</button>
+                <button class="btn btn-blue-outline btn-lg no-box-shadow btn-save">Save</button>
+            </div>
+
+        </form>
+    </div>
+</div>

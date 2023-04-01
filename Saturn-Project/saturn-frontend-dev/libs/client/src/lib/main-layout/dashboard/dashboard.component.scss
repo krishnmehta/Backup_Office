@@ -1,0 +1,18 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.dashboard-wrapper {
+    h1 {
+        @include fs(16);
+        @include lh(19);
+        color: $black;
+        margin-bottom: rem(20);
+    }
+    .dashboard-dropdown {
+        margin-bottom: rem(20);
+        max-width: 350px;
+        width: 100%;
+    }
+
+}

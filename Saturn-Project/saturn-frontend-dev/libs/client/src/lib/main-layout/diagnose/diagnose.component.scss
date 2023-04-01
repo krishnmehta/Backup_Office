@@ -1,0 +1,110 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.diagnose-wrapper {
+    .feature-product-card {
+        border-radius: rem(15);
+        background-image: url('/assets/feature-product.png');
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-color: #141823;
+        padding: rem(42) rem(56) rem(30);
+        color: $white;
+        margin-bottom: rem(30);
+
+        .product-title {
+            @include fs(40);
+            @include lh(53);
+
+            @include responsive-device-down(xl) {
+                @include fs(36);
+                @include lh(47);
+            }
+        }
+
+        .product-description{
+            max-width: 648px;
+            margin-bottom: rem(34);
+        }
+        
+    }
+
+    .product-list-wrapper {
+        padding: rem(20) rem(30);
+    }
+
+    .product-listing {
+        display: grid;
+        gap: rem(30);
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    }
+
+    .product-item {
+        color: $black;
+        .img-area {
+            margin-bottom: rem(20);
+            position: relative;
+            z-index: 1;
+            img { 
+                width: 100%;
+            }
+            button {
+                position: absolute;
+                bottom: rem(20);
+                left: 50%;
+                @include translateX(-50%);
+                background-color: transparent;
+                width: calc(100% - 40px);
+                z-index: 2;
+                @include transition(background-color 0.4s ease);
+
+                &:hover { 
+                    @include transition(background-color 0.4s ease);
+                    background-color: $blue;
+                }
+            }
+        }
+        
+    }
+
+    .sub-title {
+        @include fs(16);
+        @include lh(19);
+        color: $black;
+        margin-bottom: rem(40);
+    }
+
+    .product-title {
+        @include fs(30);
+        @include lh(39);
+        @include fw(700);
+        margin-bottom: rem(10);
+
+        @include responsive-device-down(xl) {
+            @include fs(26);
+            @include lh(35);
+        }
+    }
+
+    .product-description {
+        @include fs(15);
+        @include lh(24);
+        @include fw(500);
+    }
+
+    .btn-blue {
+        border-radius: rem(5);
+        @include fs(16);
+        @include lh(19);
+        @include fw(700);
+        color: $white;
+        min-width: 254px;
+        height: 55px;
+
+        @include responsive-device-down(xl){
+            min-width: 234px;
+            height: 45px;
+        }
+    }
+}

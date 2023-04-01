@@ -1,0 +1,48 @@
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+
+.checkbox-container {
+    .checkbox-label {
+        position: relative;
+        padding-left: rem(38);
+        cursor: pointer;
+    }
+    .checkbox-input {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+
+        //Checked box
+        &:checked ~ .checkbox-span {
+            background-color: $green-jade;
+            border-color: $green-jade;
+            .icon {
+                display: block;
+            }
+        }
+    }
+    .checkbox-span {
+        width: rem(25);
+        height: rem(25);
+        border: 1px solid $gray-bermuda;
+        background-color: $white;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        @include translateY(-50%);
+        border-radius: rem(4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .icon { 
+            display: none;
+            color: $white;
+            @include fs(14);
+        }
+    }
+    em {
+        font-style: normal;
+    }
+}

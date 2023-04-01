@@ -1,0 +1,11 @@
+@function rem($value){
+    @return calc($value/16) + rem;
+}
+
+@function shade-color($color, $weight){
+    @return mix(#000000, $color, $weight);
+}
+
+@function tint-color($color, $weight){
+    @return mix(#FFFFFF, $color, $weight);
+}
