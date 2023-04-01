@@ -1,0 +1,9 @@
+Personal Info
+
+user.firstname
+user.lastname
+user.email
+user.companylocation
+user.number
+user.summary
+user.position

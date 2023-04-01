@@ -1,0 +1,11 @@
+employeeMS.employees.employee.getList({}).done(function (result) { console.log(result); });
+
+
+employeeMS.employees.employee.create({
+        name: 'Foundation',
+        age: 7,
+        email: 'ab@gmail.com',
+        salary: 21.5
+    }).then(function (result) {
+        console.log('successfully created the book with id: ' + result.id);
+    });
